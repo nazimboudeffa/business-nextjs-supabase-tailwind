@@ -9,7 +9,7 @@ function Hero () {
         try {
             let { data, error } = await supabase.auth.signInWithOtp({
                 email
-            })
+            }, { redirectTo : process.env.NEXT_PUBLIC_SITE_URL })
         } catch (error) {
             console.log(error)
         } finally {
