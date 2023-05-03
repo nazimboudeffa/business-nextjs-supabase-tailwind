@@ -7,9 +7,12 @@ function Hero () {
     const signIn = async () => {
         if (!email) alert('Please enter a valid email')
         try {
-            let { data, error } = await supabase.auth.signInWithOtp({
-                email
-            }, { redirectTo : process.env.NEXT_PUBLIC_SITE_URL })
+            let { data, error } = await supabase.auth.signIn({
+                email: email,
+                options: {
+                  emailRedirectTo: process.env.NEXT_PUBLIC_SITE_URL,
+                },
+              })
         } catch (error) {
             console.log(error)
         } finally {
