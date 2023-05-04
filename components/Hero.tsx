@@ -39,6 +39,7 @@ function Hero () {
         console.log('useEffect')
         fetchProfile()
     }, [])
+    
     if (submitted){
         return (
             <>
@@ -52,8 +53,8 @@ function Hero () {
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md">
-                    <h1 className="mb-5 text-5xl font-bold">Welcome to AllBizzz</h1>
-                    <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                    <h1 className="mb-5 text-5xl font-bold">AllBizzz</h1>
+                    <p className="mb-5">The place where to make money while sleeping.</p>
                     <input type="text" placeholder="Type your Email" className="input input-bordered input-primary w-full max-w-xs" onChange={e => setEmail(e.target.value)} />
                     <button className="btn btn-primary" onClick={signIn}>Get Started</button>
                     </div>
@@ -67,8 +68,8 @@ function Hero () {
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md">
-                    <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-                    <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                    <h1 className="mb-5 text-5xl font-bold">AllBizzz</h1>
+                    <p className="mb-5">The place where to make money while sleeping.</p>
                     <input type="text" placeholder="Type your Email" className="input input-bordered input-primary w-full max-w-xs" onChange={e => setEmail(e.target.value)} />
                     <button className="btn btn-primary" onClick={signIn}>Get Started</button>
                     </div>
