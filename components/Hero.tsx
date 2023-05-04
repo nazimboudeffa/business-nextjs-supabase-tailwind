@@ -1,10 +1,14 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { supabase } from '../supabase'
+import { useRouter } from 'next/router'
 
 function Hero () {
     const [email, setEmail] = useState('')
     const [submitted, setSubmitted] = useState(false)
+    const router = useRouter()
+
     const signIn = async () => {
+        console.log(email)
         if (!email) alert('Please enter a valid email')
         try {
             let { data, error } = await supabase.auth.signInWithOtp({
@@ -16,6 +20,25 @@ function Hero () {
             setSubmitted(true)
         }
     }
+    const fetchProfile = async () => {
+        try {
+            const { data: { user } } = await supabase.auth.getUser()
+            if (!user){
+                router.push('/')
+            } else {
+                router.push('/dashboard')
+            }
+        } catch (error) {
+            console.log(error)
+        } finally {
+            console.log('finally')
+        }
+    }
+
+    useEffect(() => {
+        console.log('useEffect')
+        fetchProfile()
+    }, [])
     if (submitted){
         return (
             <>
@@ -29,7 +52,7 @@ function Hero () {
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md">
-                    <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
+                    <h1 className="mb-5 text-5xl font-bold">Welcome to AllBizzz</h1>
                     <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                     <input type="text" placeholder="Type your Email" className="input input-bordered input-primary w-full max-w-xs" onChange={e => setEmail(e.target.value)} />
                     <button className="btn btn-primary" onClick={signIn}>Get Started</button>
