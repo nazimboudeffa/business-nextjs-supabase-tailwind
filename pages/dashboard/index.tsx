@@ -14,7 +14,7 @@ export default function Dashboard () {
         try {
             const { data: { user } } = await supabase.auth.getUser()
             if (!user){
-                //router.push('/')
+                router.push('/')
             } else {
                 console.log(user)
             }
