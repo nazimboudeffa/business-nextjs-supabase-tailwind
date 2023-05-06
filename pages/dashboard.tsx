@@ -3,6 +3,8 @@ import { supabase } from '../supabase'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Stats from '../components/Stats'
+import ApexChart from '../components/ApexChart'
+import ApexChart2 from '../components/ApexChart2'
 
 export default function Dashboard () {
     const [user, setUser] = useState('')
@@ -92,6 +94,8 @@ export default function Dashboard () {
             </div>
         </div>
         <Stats />
+        <ApexChart />
+        <ApexChart2 />
         </>
     )
 }
