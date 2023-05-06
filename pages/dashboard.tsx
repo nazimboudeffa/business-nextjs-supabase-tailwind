@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { supabase } from '../supabase'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import Stats from '../components/Stats'
 
 export default function Dashboard () {
     const [user, setUser] = useState('')
@@ -11,7 +12,7 @@ export default function Dashboard () {
         try {
             const { data: { user } } = await supabase.auth.getUser()
             if (!user){
-                router.push('/')
+                //router.push('/')
             } else {
                 console.log(user)
             }
@@ -33,6 +34,7 @@ export default function Dashboard () {
 
     //if (!user) return null
     return (
+        <>
         <div className="navbar bg-base-100">
             <div className="navbar-start">
                 <div className="dropdown">
@@ -89,5 +91,7 @@ export default function Dashboard () {
                 </div>
             </div>
         </div>
+        <Stats />
+        </>
     )
 }
