@@ -3,7 +3,6 @@ import { supabase } from '../../supabase'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Stats from '../../components/Stats'
-import ApexChart from '../../components/ApexChart'
 import ChartDatetime from '../../components/ChartDatetime'
 import Sidenav from '../../components/Sidenav'
 
@@ -15,7 +14,7 @@ export default function Dashboard () {
         try {
             const { data: { user } } = await supabase.auth.getUser()
             if (!user){
-                router.push('/')
+                //router.push('/')
             } else {
                 console.log(user)
             }
