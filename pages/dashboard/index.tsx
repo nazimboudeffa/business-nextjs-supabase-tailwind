@@ -15,7 +15,7 @@ export default function Dashboard () {
         try {
             const { data: { user } } = await supabase.auth.getUser()
             if (!user){
-                //router.push('/')
+                router.push('/')
             } else {
                 console.log(user)
             }
@@ -53,7 +53,7 @@ export default function Dashboard () {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                <li><a>Home</a></li>
+                <li><Link href="/dashboard">Home</Link></li>
                 <li><Link href="/services">Services</Link></li>
                 </ul>
             </div>
