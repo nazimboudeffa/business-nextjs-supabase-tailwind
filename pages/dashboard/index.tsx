@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import Stats from '../../components/Stats'
 import ApexChart from '../../components/ApexChart'
 import ApexChart2 from '../../components/ApexChart2'
+import Sidenav from '../../components/Sidenav'
 
 export default function Dashboard () {
     const [user, setUser] = useState('')
@@ -14,7 +15,7 @@ export default function Dashboard () {
         try {
             const { data: { user } } = await supabase.auth.getUser()
             if (!user){
-                router.push('/')
+                //router.push('/')
             } else {
                 console.log(user)
             }
@@ -52,7 +53,9 @@ export default function Dashboard () {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                <li><Link href="/products">Products</Link></li>
+                <li><a>About</a></li>
+                <li><Link href="/service">Services</Link></li>
+                <li><a>Pricing</a></li>
                 <li><a>Contact</a></li>
                 </ul>
             </div>
@@ -93,9 +96,14 @@ export default function Dashboard () {
                 </div>
             </div>
         </div>
-        <Stats />
-        <ApexChart />
-        <ApexChart2 />
+        <div className='flex'>
+        <Sidenav />
+        <div className="container mx-auto">
+            <Stats />
+            <ApexChart />
+            <ApexChart2 />
+        </div>
+        </div>
         </>
     )
 }
