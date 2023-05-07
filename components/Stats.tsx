@@ -20,7 +20,7 @@ function Stats () {
                 className="flex flex-col rounded-lg border border-gray-100 px-4 py-8 text-center"
                 >
                 <dt className="order-last text-lg font-medium text-gray-500">
-                    Total Sales
+                    Total Money
                 </dt>
 
                 <dd className="text-4xl font-extrabold text-blue-600 md:text-5xl">
@@ -32,20 +32,20 @@ function Stats () {
                 className="flex flex-col rounded-lg border border-gray-100 px-4 py-8 text-center"
                 >
                 <dt className="order-last text-lg font-medium text-gray-500">
-                    Official Addons
+                    Total Engagement
                 </dt>
 
-                <dd className="text-4xl font-extrabold text-blue-600 md:text-5xl">24</dd>
+                <dd className="text-4xl font-extrabold text-blue-600 md:text-5xl">24k</dd>
                 </div>
 
                 <div
                 className="flex flex-col rounded-lg border border-gray-100 px-4 py-8 text-center"
                 >
                 <dt className="order-last text-lg font-medium text-gray-500">
-                    Total Addons
+                    Total business
                 </dt>
 
-                <dd className="text-4xl font-extrabold text-blue-600 md:text-5xl">86</dd>
+                <dd className="text-4xl font-extrabold text-blue-600 md:text-5xl">8</dd>
                 </div>
             </dl>
             </div>
