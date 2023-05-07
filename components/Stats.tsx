@@ -11,7 +11,7 @@ function Stats () {
             </h2>
 
             <p className="mt-4 text-gray-500 sm:text-xl">
-                On the general dashboard you will find everything to manage your business
+                On the general dashboard you will find everything to manage all your business
             </p>
             </div>
 
