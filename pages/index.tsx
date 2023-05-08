@@ -3,7 +3,7 @@ import Hero from '../components/Hero'
 import Footer from '../components/Footer'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { supabase } from '@/supabase'
+import supabase from '@/supabase'
 
 export default function Home() {
 
