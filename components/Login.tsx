@@ -22,37 +22,27 @@ function Login () {
             setSubmitted(true)
         }
     }
-
-    const fetchProfile = async () => {
-        try {
-            const { data: { user } } = await supabase.auth.getUser()
-            if (!user){
-                //router.push('/')
-            } else {
-                router.push('/dashboard')
-            }
-        } catch (error) {
-            console.log(error)
-        } finally {
-            console.log('finally')
-        }
-    }
-
-    useEffect(() => {
-        console.log('useEffect')
-        fetchProfile()
-    }, [])
     
 
     return (
         <div className="container mx-auto p-8">
             <div class="h-screen mx-auto max-w-sm">
-            <div className="flex flex-col p-6 rounded shadow bg-white">
-                <p className="py-8 text-center text-xl text-black">
-                    No need for a password!
-                </p>
+            <div className="flex flex-col p-6 rounded shadow bg-white">      
+                {
+                    submitted ? 
+                    <div className="alert alert-success shadow-lg mb-3">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <span>Check your Email to connect!</span>
+                        </div>
+                    </div>
+                    : 
+                    <p className="py-8 text-center text-xl text-black">
+                        No need for a password!
+                    </p>
+                }
                 <div className="flex flex-col">
-                    <input type="text" placeholder="Type your Email" class="input input-bordered input-primary w-full mb-3" />
+                    <input type="text" placeholder="Type your Email" class="input input-bordered input-primary w-full mb-3" onChange={e => setEmail(e.target.value)}/>
                     <button className="btn btn-primary mb-3" onClick={signIn}>
                         Login
                     </button>
