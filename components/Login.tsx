@@ -48,7 +48,7 @@ function Login () {
         <div className="container mx-auto p-8">
             <div class="h-screen mx-auto max-w-sm">
             <div className="flex flex-col p-6 rounded shadow bg-white">
-                <p className="py-8 text-center text-xl">
+                <p className="py-8 text-center text-xl text-black">
                     No need for a password!
                 </p>
                 <div className="flex flex-col">
