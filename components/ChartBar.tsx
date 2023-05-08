@@ -2,7 +2,7 @@ import React from 'react';
 import dynamic from 'next/dynamic'
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
-export default function ApexChart () {
+export default function ChartBar () {
 
     const state = {
       options: {

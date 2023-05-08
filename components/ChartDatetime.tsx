@@ -292,6 +292,7 @@ class ChartDatetime extends Component {
             [1361746800000,0],
           ]
         }],
+        
         options: {
           chart: {
             id: 'area-datetime',
