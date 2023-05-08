@@ -2,7 +2,7 @@ import { Component } from 'react'
 import dynamic from 'next/dynamic'
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
-class ChartDatetime extends Component {
+class ChartDatetime extends Component <any, any> {
     constructor(props:any) {
       super(props);
 
