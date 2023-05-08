@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic'
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 class ChartDatetime extends Component {
-    constructor(props) {
+    constructor(props:any) {
       super(props);
 
       /*
