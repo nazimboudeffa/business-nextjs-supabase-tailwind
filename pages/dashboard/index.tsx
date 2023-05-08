@@ -79,7 +79,7 @@ export default function Dashboard () {
         </div>
         <div className="grid min-h-screen md:grid-cols-[auto_1fr] justify-center gap-4 overflow-hidden p-4">
             <Sidenav />
-            <div className="h-[calc(100vh_-_2rem)] w-full bg-slate-300">
+            <div className="min-h-screen w-full bg-slate-300">
                 <Stats />
                 <ChartDatetime />
             </div>
