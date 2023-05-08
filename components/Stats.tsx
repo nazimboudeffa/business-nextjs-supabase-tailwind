@@ -25,7 +25,7 @@ function Stats () {
                 </dt>
 
                 <dd className="text-4xl font-extrabold text-blue-600 md:text-5xl">
-                    $4.8m
+                    $0
                 </dd>
                 </div>
 
@@ -36,7 +36,7 @@ function Stats () {
                     Total Engagement
                 </dt>
 
-                <dd className="text-4xl font-extrabold text-blue-600 md:text-5xl">24k</dd>
+                <dd className="text-4xl font-extrabold text-blue-600 md:text-5xl">0</dd>
                 </div>
 
                 <div
@@ -46,7 +46,7 @@ function Stats () {
                     Total business
                 </dt>
 
-                <dd className="text-4xl font-extrabold text-blue-600 md:text-5xl">8</dd>
+                <dd className="text-4xl font-extrabold text-blue-600 md:text-5xl">0</dd>
                 </div>
             </dl>
             </div>
