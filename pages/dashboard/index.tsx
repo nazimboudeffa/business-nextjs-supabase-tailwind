@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { supabase } from '../../supabase'
+import { supabase } from '@/supabase'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Stats from '../../components/Stats'
@@ -7,7 +7,7 @@ import ChartDatetime from '../../components/ChartDatetime'
 import Sidenav from '../../components/Sidenav'
 import Footer from '@/components/Footer'
 
-export default function Dashboard () {
+function Dashboard () {
     const [user, setUser] = useState('')
     const router = useRouter()
 
@@ -88,3 +88,5 @@ export default function Dashboard () {
         </>
     )
 }
+
+export default Dashboard

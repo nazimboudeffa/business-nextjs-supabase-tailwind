@@ -1,4 +1,4 @@
-function Product (props) {
+function Card (props:any) {
     return (
         <div className="card bg-base-100 shadow-xl">
             <figure><img src="/images/stock/erik-mclean-aielvGxZB0g-unsplash.jpg" alt="Shoes" /></figure>
@@ -13,4 +13,4 @@ function Product (props) {
     )
 }
 
-export default Product
+export default Card

@@ -1,12 +1,10 @@
-import { Component } from 'react'
+import React from 'react';
 import dynamic from 'next/dynamic'
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
-class ApexChart extends Component {
-  constructor(props) {
-    super(props);
+export default function ChartBar () {
 
-    this.state = {
+    const state = {
       options: {
         chart: {
           id: 'apexchart-example'
@@ -20,12 +18,8 @@ class ApexChart extends Component {
         data: [30, 40, 35, 50, 49, 60, 70, 91, 125]
       }]
     }
-  }
-  render() {
-    return (
-      <Chart options={this.state.options} series={this.state.series} type="bar" width={500} height={320} />
-    )
-  }
-}
 
-export default ApexChart
+    return (
+      <Chart options={state.options} series={state.series} type="bar" width={500} height={320} />
+    )
+}

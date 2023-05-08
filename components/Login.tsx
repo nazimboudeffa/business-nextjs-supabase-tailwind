@@ -1,11 +1,9 @@
-import { useState, useEffect } from 'react'
-import { supabase } from '../supabase'
-import { useRouter } from 'next/router'
+import { useState } from 'react'
+import { supabase } from '@/supabase'
 
 function Login () {
 
     const [submitted, setSubmitted] = useState(false)
-    const router = useRouter()
 
     const [email, setEmail] = useState('')
     
@@ -16,6 +14,8 @@ function Login () {
             let { data, error } = await supabase.auth.signInWithOtp({
                 email: email
               })
+            console.log(data) 
+            console.log(error) 
         } catch (error) {
             console.log(error)
         } finally {
@@ -26,7 +26,7 @@ function Login () {
 
     return (
         <div className="container mx-auto p-8">
-            <div class="h-screen mx-auto max-w-sm">
+            <div className="h-screen mx-auto max-w-sm">
             <div className="flex flex-col p-6 rounded shadow bg-white">      
                 {
                     submitted ? 
@@ -42,7 +42,7 @@ function Login () {
                         No need for a password!
                     </p>
                         <div className="flex flex-col">
-                            <input type="text" placeholder="Type your Email" class="input input-bordered input-primary w-full mb-3" onChange={e => setEmail(e.target.value)}/>
+                            <input type="text" placeholder="Type your Email" className="input input-bordered input-primary w-full mb-3" onChange={e => setEmail(e.target.value)}/>
                             <button className="btn btn-primary mb-3" onClick={signIn}>
                                 Login
                             </button>

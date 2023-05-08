@@ -2,8 +2,8 @@ import { Component } from 'react'
 import dynamic from 'next/dynamic'
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
-class ChartDatetime extends Component {
-    constructor(props) {
+class ChartDatetime extends Component <any, any> {
+    constructor(props:any) {
       super(props);
 
       /*
@@ -292,6 +292,7 @@ class ChartDatetime extends Component {
             [1361746800000,0],
           ]
         }],
+        
         options: {
           chart: {
             id: 'area-datetime',
@@ -363,7 +364,7 @@ class ChartDatetime extends Component {
     }
 
   
-    updateData(timeline) {
+    updateData(timeline:any) {
       this.setState({
         selection: timeline
       })
