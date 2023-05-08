@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import Stats from '../../components/Stats'
 import ChartDatetime from '../../components/ChartDatetime'
 import Sidenav from '../../components/Sidenav'
+import Footer from '@/components/Footer'
 
 export default function Dashboard () {
     const [user, setUser] = useState('')
@@ -77,12 +78,13 @@ export default function Dashboard () {
             </div>
         </div>
         <div className="grid min-h-screen md:grid-cols-[auto_1fr] justify-center gap-4 overflow-hidden p-4">
-        <Sidenav />
-        <div className="min-h-screen w-full bg-slate-300">
-            <Stats />
-            <ChartDatetime />
+            <Sidenav />
+            <div className="h-[calc(100vh_-_2rem)] w-full bg-slate-300">
+                <Stats />
+                <ChartDatetime />
+            </div>
         </div>
-        </div>
+        <Footer />
         </>
     )
 }

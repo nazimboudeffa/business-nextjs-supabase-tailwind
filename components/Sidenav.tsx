@@ -1,6 +1,6 @@
 function Sidenav () {
     return (
-        <div className="flex flex-col justify-between border-e bg-white">
+        <div className="flex h-[calc(100vh_-_2rem)] flex-col justify-between border-e bg-white">
         <div className="px-4 py-6">      
           <nav aria-label="Main Nav" className="flex flex-col space-y-1">
             <a
