@@ -46,17 +46,14 @@ function Login () {
 
     return (
         <div className="container mx-auto p-8">
-            <div class="mx-auto max-w-sm">
-            <div className="bg-white rounded shadow">
-                <div className="border-b py-8 font-bold text-black text-center text-xl tracking-widest uppercase">
+            <div class="h-screen mx-auto max-w-sm">
+            <div className="flex flex-col p-6 rounded shadow bg-white">
+                <p className="py-8 text-center text-xl">
                     No need for a password!
-                </div>
-
-                <div className="mb-3">
-                    <input className="border w-full p-3" name="email" type="text" placeholder="e-mail" onChange={e => setEmail(e.target.value)}/>
-                </div>
-                <div className="flex">
-                    <button className="bg-primary hover:bg-primary-dark w-full p-4 text-sm text-white uppercase font-bold tracking-wider" onClick={signIn}>
+                </p>
+                <div className="flex flex-col">
+                    <input type="text" placeholder="Type your Email" class="input input-bordered input-primary w-full mb-3" />
+                    <button className="btn btn-primary mb-3" onClick={signIn}>
                         Login
                     </button>
                 </div>
