@@ -9,7 +9,7 @@ function GitHub () {
   
     if (isLoading) return (<div>Loading...</div>)
   
-    if (error) return (<div>An error has occurred: {error.message}</div>)
+    if (error) return (<div>An error has occurred</div>)
   
     return (
       <div>
