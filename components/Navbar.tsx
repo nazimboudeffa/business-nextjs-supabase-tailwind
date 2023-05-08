@@ -28,7 +28,7 @@ function Navbar () {
                 </ul>
             </div>
             <div className="navbar-end flex-none">
-                <Link className="btn btn-primary" href="/login">Login</Link>
+                <Link className="btn btn-primary" href="/login">Sign in</Link>
             </div>
         </div>
     )
