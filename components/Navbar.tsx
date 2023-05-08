@@ -25,7 +25,7 @@ function Navbar () {
                 </ul>
             </div>
             <div className="navbar-end flex-none">
-                <button className="btn btn-primary">Login</button>
+                <button htmlFor="modal-login" className="btn btn-primary">Login</button>
             </div>
         </div>
     )
