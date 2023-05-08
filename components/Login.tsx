@@ -26,7 +26,7 @@ function Login () {
 
     return (
         <div className="container mx-auto p-8">
-            <div class="h-screen mx-auto max-w-sm">
+            <div className="h-screen mx-auto max-w-sm">
             <div className="flex flex-col p-6 rounded shadow bg-white">      
                 {
                     submitted ? 
