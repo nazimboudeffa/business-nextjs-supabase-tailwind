@@ -363,7 +363,7 @@ class ChartDatetime extends Component {
     }
 
   
-    updateData(timeline) {
+    updateData(timeline:any) {
       this.setState({
         selection: timeline
       })

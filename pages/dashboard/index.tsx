@@ -7,7 +7,7 @@ import ChartDatetime from '../../components/ChartDatetime'
 import Sidenav from '../../components/Sidenav'
 import Footer from '@/components/Footer'
 
-export default function Dashboard () {
+function Dashboard () {
     const [user, setUser] = useState('')
     const router = useRouter()
 
@@ -88,3 +88,5 @@ export default function Dashboard () {
         </>
     )
 }
+
+export default Dashboard
