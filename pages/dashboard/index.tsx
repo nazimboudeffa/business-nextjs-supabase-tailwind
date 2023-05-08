@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { supabase } from '../../supabase'
+import supabase from '../../supabase'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Stats from '../../components/Stats'
