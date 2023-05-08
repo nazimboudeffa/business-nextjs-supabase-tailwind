@@ -37,16 +37,18 @@ function Login () {
                         </div>
                     </div>
                     : 
+                    <div>
                     <p className="py-8 text-center text-xl text-black">
                         No need for a password!
                     </p>
+                        <div className="flex flex-col">
+                            <input type="text" placeholder="Type your Email" class="input input-bordered input-primary w-full mb-3" onChange={e => setEmail(e.target.value)}/>
+                            <button className="btn btn-primary mb-3" onClick={signIn}>
+                                Login
+                            </button>
+                        </div>
+                    </div>
                 }
-                <div className="flex flex-col">
-                    <input type="text" placeholder="Type your Email" class="input input-bordered input-primary w-full mb-3" onChange={e => setEmail(e.target.value)}/>
-                    <button className="btn btn-primary mb-3" onClick={signIn}>
-                        Login
-                    </button>
-                </div>
             </div>
             </div>
         </div>
