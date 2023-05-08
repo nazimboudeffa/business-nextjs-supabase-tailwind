@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '@/supabase'
-import { useRouter } from 'next/router'
 
 function Login () {
 
     const [submitted, setSubmitted] = useState(false)
-    const router = useRouter()
 
     const [email, setEmail] = useState('')
     
@@ -16,6 +14,8 @@ function Login () {
             let { data, error } = await supabase.auth.signInWithOtp({
                 email: email
               })
+            console.log(data) 
+            console.log(error) 
         } catch (error) {
             console.log(error)
         } finally {
