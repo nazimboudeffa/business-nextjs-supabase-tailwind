@@ -1,16 +1,38 @@
-function ModalLogin () {
+function Modal ({ visible, onClose }) {
+    const handleOnClose = (e) => {
+        if (e.target.id === 'arround') onClose()
+    }
+    if (!visible) return null
     return (
         <>
-        <input type="checkbox" id="modal-login" className="modal-toggle" />
-        <div className="modal">
-        <div className="modal-box relative">
-            <label className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-            <h3 className="text-lg font-bold">Congratulations random Internet user!</h3>
-            <p className="py-4">You have been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
+        <div id="arround" onClick={(e)=>handleOnClose(e)} className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center">
+        <div className="bg-white p-2 rounded w-72">
+            <h1 className="font-semibold text-center text-xl text-gray-700">
+            Settings
+            </h1>
+            <p className="text-center text-gray-700 mb-5">Set your new settings</p>
+
+            <div className="flex flex-col">
+            <input
+                type="text"
+                className="border border-gray-700 p-2 rounded mb-5"
+                placeholder="New Email"
+            />
+            <input
+                type="text"
+                className="border border-gray-700 p-2 rounded mb-5"
+                placeholder="Phone number"
+            />
+            </div>
+            <div className="text-center">
+            <button className="px-5 py-2 bg-gray-700 text-white rounded" onClick={()=>onClose()} >
+                Save
+            </button>
+            </div>
         </div>
         </div>
         </>
     )
 }
 
-export default ModalLogin
+export default Modal
