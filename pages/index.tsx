@@ -1,37 +1,40 @@
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import Footer from '../components/Footer'
-import { useEffect } from 'react'
-import { useRouter } from 'next/router'
+import { useState, useEffect } from 'react';
 import { supabase } from '@/supabase'
+import { useRouter } from 'next/router'
 
 export default function Home() {
 
   const router = useRouter();
 
+  const [loggedIn, setLoggedIn] = useState(false)
   const fetchProfile = async () => {
     try {
-          const { data: { user } } = await supabase.auth.getUser()
-          if (!user){
+            const { data: { user } } = await supabase.auth.getUser()
+            if (!user){
+              console.log(loggedIn)
               router.push('/')
-          } else {
+            } else {
+              setLoggedIn(true)
+              console.log(loggedIn)
               router.push('/dashboard')
-          }
-      } catch (error) {
-          console.log(error)
-      } finally {
-          console.log('finally')
-      }
-  }
+            }
+        } catch (error) {
+            console.log(error)
+        } finally {
+            console.log('finally')
+        }
+    }
 
-  useEffect(() => {
-      console.log('useEffect')
-      fetchProfile()
-  }, [])
+    useEffect(() => {
+        fetchProfile()
+    }, [])
 
   return (
     <>
-      <Navbar />
+      <Navbar loggedIn={loggedIn} />
       <Hero />
       <Footer />
     </>
