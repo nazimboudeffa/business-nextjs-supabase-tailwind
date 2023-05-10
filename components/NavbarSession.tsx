@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { useSupabaseClient} from '@supabase/auth-helpers-react'
 import { Session } from '@supabase/supabase-js'
 
-function NavbarSession ({ session } : { session : Session }) {
+function NavbarSession ({ session } : { session : Session | null }) {
     const supabase = useSupabaseClient()
     const router = useRouter();
 
