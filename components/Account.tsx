@@ -41,7 +41,7 @@ export default function Account({ session }: { session: Session }) {
     }
   }
 
-  async function updateProfile({ username, website, avatar_url }) {
+  async function updateProfile({ username, website, avatar_url } : { username:string, website:string, avatar_url:string }) {
     try {
       setLoading(true)
       if (!user) throw new Error('No user')
