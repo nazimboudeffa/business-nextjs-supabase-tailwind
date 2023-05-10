@@ -1,11 +1,6 @@
-import Stats from '../../components/Stats'
-import ChartDatetime from '../../components/ChartDatetime'
-import Sidenav from '../../components/Sidenav'
-import Footer from '@/components/Footer'
-import Navbar from '@/components/Navbar'
-import { useRouter } from 'next/router'
-import { supabase } from '@/supabase'
-import { useState, useEffect } from 'react'
+import Stats from '@/components/Stats'
+import ChartDatetime from '@/components/ChartDatetime'
+import Sidenav from '@/components/Sidenav'
 
 function Dashboard () {
       

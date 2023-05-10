@@ -7,7 +7,6 @@ function Cryptos() {
 
   return (
     <>
-    <Navbar loggedin />
     <ChartBar />
     <ChartDonut />
     </>

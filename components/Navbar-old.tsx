@@ -4,7 +4,17 @@ import { useRouter } from 'next/router'
 import Modal from '@/components/Modal'
 import { supabase } from '@/supabase'
 
-function Navbar () {
+function Navbar ({ session }) {
+
+    const router = useRouter();
+
+    const [showModal, setShowModal] = useState(false)
+    const handleOnClose = () => setShowModal(false)
+
+    const signOut = async () => {
+        await supabase.auth.signOut()
+        router.push('/')
+    }
 
     return (
         <>
@@ -15,7 +25,7 @@ function Navbar () {
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
             </label>
             <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                <li><Link href="/">Home</Link></li>
+                {session? <li><Link href="/dashboard">Home</Link></li> : <li><Link href="/">Home</Link></li> }
                 <li><a>About</a></li>
                 <li><Link href="/services">Services</Link></li>
                 <li><a>Pricing</a></li>
@@ -26,7 +36,7 @@ function Navbar () {
         </div>
         <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">
-            <li><Link href="/">Home</Link></li>
+            {session? <li><Link href="/dashboard">Home</Link></li> : <li><Link href="/">Home</Link></li> }
             <li><a>About</a></li>
                 <li><Link href="/services">Services</Link></li>
                 <li><a>Pricing</a></li>
@@ -34,7 +44,27 @@ function Navbar () {
             </ul>
         </div>
         <div className="navbar-end flex-none">
-            <Link className="btn btn-primary" href="/login">Sign in</Link>
+            {!session? <Link className="btn btn-primary" href="/login">Sign in</Link> :
+            
+            <div className="dropdown dropdown-end">
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                </div>
+            </label>
+            <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                <li>
+                <a className="justify-between">
+                    Profile
+                    <span className="badge">New</span>
+                </a>
+                </li>
+                <li><a onClick={()=>setShowModal(true)}>Settings</a></li>
+                <li><a onClick={signOut}>Logout</a></li>
+            </ul>
+            </div>
+            
+            }
         </div>
         </div>
         <Modal onClose={()=>handleOnClose()} visible={showModal} />
