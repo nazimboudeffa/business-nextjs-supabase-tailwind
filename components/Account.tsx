@@ -5,9 +5,9 @@ export default function Account({ session }: { session: Session }) {
   const supabase = useSupabaseClient()
   const user = useUser()
   const [loading, setLoading] = useState(true)
-  const [username, setUsername] = useState(null)
-  const [website, setWebsite] = useState(null)
-  const [avatar_url, setAvatarUrl] = useState(null)
+  const [username, setUsername] = useState('')
+  const [website, setWebsite] = useState('')
+  const [avatar_url, setAvatarUrl] = useState('')
 
   useEffect(() => {
     getProfile()
