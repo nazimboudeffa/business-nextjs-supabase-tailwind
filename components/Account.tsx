@@ -81,7 +81,7 @@ export default function Account({ session }: { session: Session }) {
         <div className="flex flex-col p-6 rounded shadow bg-white">      
         <div className="form-widget">
           <div className="text-lg mb-3">
-            <label htmlFor="email">Welcome </label>
+            <label htmlFor="email" className="text-black">Email</label>
             <input 
               className="input input-bordered input-primary w-full mb-3"
               id="email" 
@@ -91,7 +91,7 @@ export default function Account({ session }: { session: Session }) {
              />
           </div>
           <div className="text-lg mb-3">
-            <label htmlFor="username">Username</label>
+            <label htmlFor="username" className="text-black">Username</label>
             <input
               className="input input-bordered input-primary w-full mb-3"
               id="username"
@@ -101,7 +101,7 @@ export default function Account({ session }: { session: Session }) {
             />
           </div>
           <div className="text-lg mb-3">
-            <label htmlFor="website">Website</label>
+            <label htmlFor="website" className="text-black">Website</label>
             <input
               className="input input-bordered input-primary w-full mb-3"
               id="website"
