@@ -1,15 +1,13 @@
 import { useState, useEffect } from 'react'
 import { useUser, useSupabaseClient, Session } from '@supabase/auth-helpers-react'
-import { Database } from '../utils/database.types'
-type Profiles = Database['public']['Tables']['profiles']['Row']
 
 export default function Account({ session }: { session: Session }) {
-  const supabase = useSupabaseClient<Database>()
+  const supabase = useSupabaseClient()
   const user = useUser()
   const [loading, setLoading] = useState(true)
-  const [username, setUsername] = useState<Profiles['username']>(null)
-  const [website, setWebsite] = useState<Profiles['website']>(null)
-  const [avatar_url, setAvatarUrl] = useState<Profiles['avatar_url']>(null)
+  const [username, setUsername] = useState(null)
+  const [website, setWebsite] = useState(null)
+  const [avatar_url, setAvatarUrl] = useState(null)
 
   useEffect(() => {
     getProfile()
@@ -43,15 +41,7 @@ export default function Account({ session }: { session: Session }) {
     }
   }
 
-  async function updateProfile({
-    username,
-    website,
-    avatar_url,
-  }: {
-    username: Profiles['username']
-    website: Profiles['website']
-    avatar_url: Profiles['avatar_url']
-  }) {
+  async function updateProfile({ username, website, avatar_url }) {
     try {
       setLoading(true)
       if (!user) throw new Error('No user')
