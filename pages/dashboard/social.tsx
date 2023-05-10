@@ -5,9 +5,11 @@ const queryClient = new QueryClient()
 
 function Social () {
   return (
+    <>
     <QueryClientProvider client={queryClient}>
       <GitHub />
     </QueryClientProvider>
+    </>
   )
 }
 

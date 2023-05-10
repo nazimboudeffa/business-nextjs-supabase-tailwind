@@ -1,39 +1,29 @@
-import Navbar from '../components/Navbar'
-import Hero from '../components/Hero'
-import Footer from '../components/Footer'
-import { useEffect } from 'react'
-import { useRouter } from 'next/router'
-import { supabase } from '@/supabase'
+import { useSession } from '@supabase/auth-helpers-react'
+import NavbarSession from '@/components/NavbarSession'
+import Hero from '@/components/Hero'
+import Footer from '@/components/Footer'
+import Dashboard from '@/components/Dashboard'
 
-export default function Home() {
+const Home = () => {
+  const session = useSession()
 
-  const router = useRouter();
-
-  const fetchProfile = async () => {
-    try {
-          const { data: { user } } = await supabase.auth.getUser()
-          if (!user){
-              router.push('/')
-          } else {
-              router.push('/dashboard')
-          }
-      } catch (error) {
-          console.log(error)
-      } finally {
-          console.log('finally')
-      }
-  }
-
-  useEffect(() => {
-      console.log('useEffect')
-      fetchProfile()
-  }, [])
-
+  if (!session)
   return (
-    <>
-      <Navbar />
+    <> 
+      <NavbarSession session={session} />
       <Hero />
+      <Footer />
+    </>
+  ) 
+  
+  if (session)
+  return (
+    <> 
+      <NavbarSession session={session} />
+      <Dashboard />
       <Footer />
     </>
   )
 }
+
+export default Home

@@ -1,13 +1,28 @@
-import Navbar from '../components/Navbar'
-import Services from '../components/Services'
-import Footer from '../components/Footer'
+import { useSession } from '@supabase/auth-helpers-react'
+import NavbarSession from '@/components/NavbarSession'
+import Footer from '@/components/Footer'
+import Services from '@/components/Services'
 
-export default function Home() {
+const Home = () => {
+  const session = useSession()
+
+  if (!session)
   return (
-    <>
-      <Navbar />
+    <> 
+      <NavbarSession session={session} />
+      <Services />
+      <Footer />
+    </>
+  ) 
+  
+  if (session)
+  return (
+    <> 
+      <NavbarSession session={session} />
       <Services />
       <Footer />
     </>
   )
 }
+
+export default Home
