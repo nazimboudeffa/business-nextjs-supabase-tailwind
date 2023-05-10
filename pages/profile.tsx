@@ -3,6 +3,7 @@ import { ThemeSupa } from '@supabase/auth-ui-shared'
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
 import Account from '@/components/Account'
 import NavbarSession from '@/components/NavbarSession'
+import Footer from '@/components/Footer'
 
 const Profile = () => {
   const session = useSession()
@@ -18,11 +19,13 @@ const Profile = () => {
             <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} theme="dark" />
           </div>
         </div>
+        <Footer />
         </>
       ) : (
         <>
         <NavbarSession session={session} />
         <Account session={session} />
+        <Footer />
         </>
       )}
     </>
