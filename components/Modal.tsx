@@ -17,11 +17,13 @@ function Modal ({ visible, onClose }) {
                 type="text"
                 className="border border-gray-700 p-2 rounded mb-5"
                 placeholder="New Email"
+                disabled
             />
             <input
                 type="text"
                 className="border border-gray-700 p-2 rounded mb-5"
                 placeholder="Phone number"
+                disabled
             />
             </div>
             <div className="text-center">
