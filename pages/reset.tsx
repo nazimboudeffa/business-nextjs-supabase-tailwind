@@ -19,7 +19,7 @@ function Reset () {
                         Type your new password
                     </p>
                     <div className="flex flex-col">
-                        <input type="password" placeholder="Type your Email" className="input input-bordered input-primary w-full mb-3" onChange={e => setPassword(e.target.value)}/>
+                        <input type="password" placeholder="New password" className="input input-bordered input-primary w-full mb-3" onChange={e => setPassword(e.target.value)}/>
                         <button className="btn btn-primary mb-3" onClick={()=>changePassword()}>
                             Reset Password
                         </button>
