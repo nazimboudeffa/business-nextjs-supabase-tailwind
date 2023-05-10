@@ -15,7 +15,7 @@ const Login = () => {
         <NavbarSession session={session} />
         <div className="container mx-auto p-6">
           <div className="h-screen mx-auto max-w-sm">
-            <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} theme="dark" providers={['google', 'facebook']} />
+            <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} theme="dark" providers={['google']} />
           </div>
         </div>
         </>
