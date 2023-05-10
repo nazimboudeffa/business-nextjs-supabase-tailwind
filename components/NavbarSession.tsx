@@ -7,9 +7,7 @@ function NavbarSession ({ session }) {
     const router = useRouter();
 
     const signOut = async () => {
-        console.log('logout')
         supabase.auth.signOut()
-        console.log('logoutlogout')
         router.push('/')
     }
 
