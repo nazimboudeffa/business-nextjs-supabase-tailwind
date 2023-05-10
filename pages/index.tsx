@@ -3,9 +3,11 @@ import NavbarSession from '@/components/NavbarSession'
 import Hero from '@/components/Hero'
 import Footer from '@/components/Footer'
 import Dashboard from '@/components/Dashboard'
+import { Session } from '@supabase/supabase-js'
 
 const Home = () => {
-  const session = useSession()
+  let session : Session | null
+  session = useSession()
 
   if (!session)
   return (
