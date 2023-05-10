@@ -1,4 +1,4 @@
-function Modal ({ visible, onClose } : { visible:boolean, onClose:boolean }) {
+function Modal ({ visible, onClose } : { visible:boolean, onClose: () => void }) {
     const handleOnClose = (e:any) => {
         if (e.target.id === 'arround') onClose()
     }
