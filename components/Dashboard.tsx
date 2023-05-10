@@ -1,5 +1,5 @@
 import Stats from '@/components/Stats'
-import ChartDatetime from '@/components/ChartDatetime'
+import ChartLine from '@/components/ChartLine'
 import Sidenav from '@/components/Sidenav'
 
 function Dashboard () {
@@ -10,7 +10,7 @@ function Dashboard () {
             <Sidenav />
             <div className="min-h-screen w-full bg-slate-300">
                 <Stats />
-                <ChartDatetime />
+                <ChartLine />
             </div>
         </div>
         </>

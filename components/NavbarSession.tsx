@@ -1,15 +1,10 @@
 import Link from 'next/link'
-import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router'
-import Modal from '@/components/Modal'
 import { useSupabaseClient} from '@supabase/auth-helpers-react'
 
 function NavbarSession ({ session }) {
     const supabase = useSupabaseClient()
     const router = useRouter();
-
-    const [showModal, setShowModal] = useState(false)
-    const handleOnClose = () => setShowModal(false)
 
     const signOut = async () => {
         console.log('logout')
@@ -61,7 +56,7 @@ function NavbarSession ({ session }) {
                     <span className="badge">public</span>
                 </Link>
                 </li>
-                <li><a onClick={()=>setShowModal(true)}>Settings</a></li>
+                <li><Link href="/settings">Settings</Link></li>
                 <li><button onClick={()=>signOut()}>Logout</button></li>
             </ul>
             </div>
@@ -69,7 +64,6 @@ function NavbarSession ({ session }) {
             }
         </div>
         </div>
-        <Modal onClose={()=>handleOnClose()} visible={showModal} />
         </>
     )
 }

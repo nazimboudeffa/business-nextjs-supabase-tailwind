@@ -1,5 +1,14 @@
+import { useState, useEffect } from 'react';
+import Modal from '@/components/Modal'
+
 function Sidenav () {
+
+  const [showModal, setShowModal] = useState(false)
+  const handleOnClose = () => setShowModal(false)
+
     return (
+      <>
+        <Modal onClose={()=>handleOnClose()} visible={showModal} />
         <div className="flex flex-col justify-between border-e bg-white">
         <div className="px-4 py-6">      
           <nav aria-label="Main Nav" className="flex flex-col space-y-1">
@@ -54,7 +63,7 @@ function Sidenav () {
                   </svg>
 
       
-                  <span className="text-sm font-medium"> Add </span>
+                  <span className="text-sm font-medium" onClick={()=>setShowModal(true)}> Add </span>
                 </a>
       
                 <a
@@ -250,6 +259,7 @@ function Sidenav () {
           </a>
         </div>
       </div>
+    </>
     )
 }
 
