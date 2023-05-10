@@ -37,7 +37,6 @@ function Navbar () {
             <Link className="btn btn-primary" href="/login">Sign in</Link>
         </div>
         </div>
-        <Modal onClose={()=>handleOnClose()} visible={showModal} />
         </>
     )
 }

@@ -1,25 +1,27 @@
-import { Auth } from '@supabase/auth-ui-react'
-import { ThemeSupa } from '@supabase/auth-ui-shared'
-import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
-import Account from '@/components/Account'
-import Navbar from '@/components/Navbar'
+import { useSession } from '@supabase/auth-helpers-react'
+import NavbarSession from '@/components/NavbarSession'
+import Hero from '@/components/Hero'
+import Footer from '@/components/Footer'
+import Dashboard from '@/components/Dashboard'
 
 const Home = () => {
   const session = useSession()
-  const supabase = useSupabaseClient()
 
+  if (!session)
   return (
-    <>
-      
-      {!session ? (
-        <div className="container mx-auto p-6">
-          <div className="h-screen mx-auto max-w-sm">
-            <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} theme="dark" />
-          </div>
-        </div>
-      ) : (
-        <Account session={session} />
-      )}
+    <> 
+      <NavbarSession session={session} />
+      <Hero />
+      <Footer />
+    </>
+  ) 
+  
+  if (session)
+  return (
+    <> 
+      <NavbarSession session={session} />
+      <Dashboard />
+      <Footer />
     </>
   )
 }

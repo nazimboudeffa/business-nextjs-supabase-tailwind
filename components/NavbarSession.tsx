@@ -2,17 +2,19 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router'
 import Modal from '@/components/Modal'
-import { supabase } from '@/supabase'
+import { useSupabaseClient} from '@supabase/auth-helpers-react'
 
-function Navbar ({ session }) {
-
+function NavbarSession ({ session }) {
+    const supabase = useSupabaseClient()
     const router = useRouter();
 
     const [showModal, setShowModal] = useState(false)
     const handleOnClose = () => setShowModal(false)
 
     const signOut = async () => {
-        await supabase.auth.signOut()
+        console.log('logout')
+        supabase.auth.signOut()
+        console.log('logoutlogout')
         router.push('/')
     }
 
@@ -36,7 +38,7 @@ function Navbar ({ session }) {
         </div>
         <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">
-            {session? <li><Link href="/dashboard">Home</Link></li> : <li><Link href="/">Home</Link></li> }
+            <li><Link href="/">Home</Link></li>
             <li><a>About</a></li>
                 <li><Link href="/services">Services</Link></li>
                 <li><a>Pricing</a></li>
@@ -60,7 +62,7 @@ function Navbar ({ session }) {
                 </a>
                 </li>
                 <li><a onClick={()=>setShowModal(true)}>Settings</a></li>
-                <li><a onClick={signOut}>Logout</a></li>
+                <li><button onClick={()=>signOut()}>Logout</button></li>
             </ul>
             </div>
             
@@ -72,4 +74,4 @@ function Navbar ({ session }) {
     )
 }
 
-export default Navbar
+export default NavbarSession
