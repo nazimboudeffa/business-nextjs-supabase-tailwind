@@ -76,45 +76,53 @@ export default function Account({ session }: { session: Session }) {
   }
 
   return (
-    <div className="form-widget">
-      <div>
-        <label htmlFor="email">Email</label>
-        <input id="email" type="text" value={session.user.email} disabled />
-      </div>
-      <div>
-        <label htmlFor="username">Username</label>
-        <input
-          id="username"
-          type="text"
-          value={username || ''}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-      </div>
-      <div>
-        <label htmlFor="website">Website</label>
-        <input
-          id="website"
-          type="url"
-          value={website || ''}
-          onChange={(e) => setWebsite(e.target.value)}
-        />
-      </div>
+    <div className="container mx-auto p-8">
+      <div className="h-screen mx-auto max-w-sm">
+        <div className="flex flex-col p-6 rounded shadow bg-white">      
+        <div className="form-widget">
+          <div className="text-lg mb-3">
+            <label htmlFor="email">Welcome </label>
+            <input 
+              className="input input-bordered input-primary w-full mb-3"
+              id="email" 
+              type="text" 
+              value={session.user.email} 
+              disabled
+             />
+          </div>
+          <div className="text-lg mb-3">
+            <label htmlFor="username">Username</label>
+            <input
+              className="input input-bordered input-primary w-full mb-3"
+              id="username"
+              type="text"
+              value={username || ''}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </div>
+          <div className="text-lg mb-3">
+            <label htmlFor="website">Website</label>
+            <input
+              className="input input-bordered input-primary w-full mb-3"
+              id="website"
+              type="url"
+              value={website || ''}
+              onChange={(e) => setWebsite(e.target.value)}
+            />
+          </div>
 
-      <div>
-        <button
-          className="button primary block"
-          onClick={() => updateProfile({ username, website, avatar_url })}
-          disabled={loading}
-        >
-          {loading ? 'Loading ...' : 'Update'}
-        </button>
+          <div>
+            <button
+              className="btn btn-primary mb-3"
+              onClick={() => updateProfile({ username, website, avatar_url })}
+              disabled={loading}
+            >
+              {loading ? 'Loading ...' : 'Update'}
+            </button>
+          </div>
+        </div>
       </div>
-
-      <div>
-        <button className="button block" onClick={() => supabase.auth.signOut()}>
-          Sign Out
-        </button>
-      </div>
+    </div>
     </div>
   )
 }

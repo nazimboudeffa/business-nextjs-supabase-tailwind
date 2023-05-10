@@ -1,10 +1,10 @@
 import { Auth } from '@supabase/auth-ui-react'
 import { ThemeSupa } from '@supabase/auth-ui-shared'
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
+import Account from '@/components/Account'
 import NavbarSession from '@/components/NavbarSession'
-import Welcome from '@/components/Welcome'
 
-const Login = () => {
+const Profile = () => {
   const session = useSession()
   const supabase = useSupabaseClient()
 
@@ -22,11 +22,11 @@ const Login = () => {
       ) : (
         <>
         <NavbarSession session={session} />
-        <Welcome/>
+        <Account session={session} />
         </>
       )}
     </>
   )
 }
 
-export default Login
+export default Profile

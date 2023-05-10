@@ -56,10 +56,10 @@ function NavbarSession ({ session }) {
             </label>
             <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                 <li>
-                <a className="justify-between">
+                <Link className="justify-between" href="/profile">
                     Profile
-                    <span className="badge">New</span>
-                </a>
+                    <span className="badge">public</span>
+                </Link>
                 </li>
                 <li><a onClick={()=>setShowModal(true)}>Settings</a></li>
                 <li><button onClick={()=>signOut()}>Logout</button></li>
